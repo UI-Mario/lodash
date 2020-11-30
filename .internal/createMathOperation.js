@@ -10,6 +10,7 @@ import baseToString from './baseToString.js'
  * @returns {Function} Returns the new mathematical operation function.
  */
 function createMathOperation(operator, defaultValue) {
+  // 限制了一个操作两个数
   return (value, other) => {
     if (value === undefined && other === undefined) {
       return defaultValue
@@ -20,6 +21,7 @@ function createMathOperation(operator, defaultValue) {
     if (other !== undefined && value === undefined) {
       return other
     }
+    // 很好，愣是没看出来这if是干啥的
     if (typeof value === 'string' || typeof other === 'string') {
       value = baseToString(value)
       other = baseToString(other)

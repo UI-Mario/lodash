@@ -5,6 +5,7 @@
  * @param {string} methodName The name of the `Math` method to use when rounding.
  * @returns {Function} Returns the new round function.
  */
+// 感觉Math.round其实是很难的，以range为基础搭建其实有很多不足
 function createRound(methodName) {
   const func = Math[methodName]
   return (number, precision) => {
