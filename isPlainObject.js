@@ -28,9 +28,11 @@ import isObjectLike from './isObjectLike.js'
  * // => true
  */
 function isPlainObject(value) {
+  // 一般来说我的话会在这用typeof顺便剔除掉function和null
   if (!isObjectLike(value) || getTag(value) != '[object Object]') {
     return false
   }
+  // 上一级是null，感觉和redux的实现没啥区别呀
   if (Object.getPrototypeOf(value) === null) {
     return true
   }
